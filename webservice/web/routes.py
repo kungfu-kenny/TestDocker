@@ -3,7 +3,7 @@ from flask import (abort,
                 make_response)
 from datetime import datetime
 from .app import app
-from db.db_storage import db, User
+from db.models import db, User
 from config import error_number, Routes
 
 

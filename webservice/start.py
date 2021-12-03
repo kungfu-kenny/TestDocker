@@ -1,7 +1,7 @@
 from web.app import app
 from web.routes import *
-from config import host
+from config import FlaskServer
 
 
 if __name__ == '__main__':
-    app.run(host=host)
+    app.run(host=FlaskServer.host)

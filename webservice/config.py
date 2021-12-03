@@ -5,9 +5,15 @@ load_dotenv()
 
 error_number = 404
 
-host = '0.0.0.0'
+class FlaskServer:
+    host = '0.0.0.0'
 
 class PostgreSQL:
+    db = os.getenv('POSTGRES_DB')
+    host = os.getenv('POSTGRES_HOST')
+    port = os.getenv('POSTGRES_PORT')
+    user = os.getenv('POSTGRES_USER')
+    password = os.getenv('POSTGRES_PASSWORD')
     default = ''.join(['sqlite:///', os.path.join(os.getcwd(), 'db.sqlite')])
 
 class Routes:

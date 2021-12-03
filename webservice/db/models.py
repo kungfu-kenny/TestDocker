@@ -16,3 +16,6 @@ class User(db.Model):
         return f"{self.id}, {self.date}"
 
 db.create_all()
+
+db.session.add(User(date=datetime.now()))
+db.session.commit()

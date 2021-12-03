@@ -5,12 +5,16 @@ volumes:
       driver: local
 
 services:
-  api:
-    build: .
+  webservice:
+    build: ./webservice
     depends_on:
       - db
     environment:
-      SQLALCHEMY_DATABASE_URI: postgresql://test:test@db:5432/test
+      POSTGRES_USER: test
+      POSTGRES_HOST: db
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+      POSTGRES_PORT: 5432
     networks:
       - default
     ports:
