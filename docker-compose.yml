@@ -6,9 +6,6 @@ volumes:
 
 services:
   webservice:
-    build: ./webservice
-    depends_on:
-      - db
     environment:
       POSTGRES_USER: test
       POSTGRES_HOST: db
@@ -20,17 +17,21 @@ services:
     ports:
       - 5000:5000
     # restart: always
-
+    build: ./webservice
+    depends_on:
+      - db
+    
   db:
     environment:
       POSTGRES_USER: test
       POSTGRES_PASSWORD: test
       POSTGRES_DB: test
-    image: postgres:latest
     networks:
       - default
     ports:
       - 5432:5432
+    # restart: always
+    image: postgres:latest
     volumes:
       - hello:/var/lib/postgresql/data
-    # restart: always
+    
